@@ -70,12 +70,38 @@ const EmployeeList = () => {
         (employee) => !selectedRows.includes(employee.id)
       );
       setEmployees(updatedEmployees);
-      setSelectedRows([]);
       initializeEditableRows(updatedEmployees);
     }
 
-    setSelectedRows(updatedRows); // Update selectedRows
+    setSelectedRows([]); // Clear selectedRows after deletion
+
+    // ... (existing code)
   };
+  // const handleDelete = (id) => {
+  //   let updatedRows = [...selectedRows]; // Create a copy of selectedRows
+
+  //   if (id) {
+  //     // Individual delete
+  //     updatedRows = updatedRows.filter((rowId) => rowId !== id);
+  //     const updatedEmployees = employees.filter(
+  //       (employee) => employee.id !== id
+  //     );
+  //     setEmployees(updatedEmployees);
+  //     const updatedEditableRows = { ...editableRows };
+  //     delete updatedEditableRows[id];
+  //     setEditableRows(updatedEditableRows);
+  //   } else {
+  //     // Bulk delete
+  //     const updatedEmployees = employees.filter(
+  //       (employee) => !selectedRows.includes(employee.id)
+  //     );
+  //     setEmployees(updatedEmployees);
+  //     setSelectedRows([]);
+  //     initializeEditableRows(updatedEmployees);
+  //   }
+
+  //   setSelectedRows(updatedRows); // Update selectedRows
+  // };
 
   const handleInputChange = (e, id, field) => {
     const updatedEmployees = employees.map((employee) => {
